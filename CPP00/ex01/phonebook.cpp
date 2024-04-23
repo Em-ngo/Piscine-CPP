@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 13:35:27 by engo              #+#    #+#             */
-/*   Updated: 2024/02/04 16:08:59 by engo             ###   ########.fr       */
+/*   Updated: 2024/04/23 18:18:57 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 Phonebook::Phonebook() :nextIndex(0) {
 }
 
+
 void Phonebook::addContact(const Contact contact) {
-   contacts[nextIndex] = contact;
+    contacts[nextIndex] = contact;
     nextIndex = (nextIndex + 1) % MAX_CONTACTS;
     std::cout << "Contact added successfully!" << std::endl;
 }
@@ -50,14 +51,17 @@ std::string Phonebook::truncateString(std::string str, size_t width) {
 }
 
 void Phonebook::searchContact(int index) {
-    if (index >= 1 && (size_t)(index - 1) < MAX_CONTACTS) {
         Contact& contact = contacts[index - 1];
-        std::cout << "First Name: " << contact.getFirstName() << std::endl;
-        std::cout << "Last Name: " << contact.getLastName() << std::endl;
-        std::cout << "Nickname: " << contact.getNickname() << std::endl;
-        std::cout << "Phone Number: " << contact.getPhoneNumber() << std::endl;
-        std::cout << "Darkest Secret: " << contact.getDarkestSecret() << std::endl;
-    } else {
+    if (!contact.getFirstName().empty()){
+        if (index >= 1 && (size_t)(index - 1) < MAX_CONTACTS){
+            std::cout << "First Name: " << contact.getFirstName() << std::endl;
+            std::cout << "Last Name: " << contact.getLastName() << std::endl;
+            std::cout << "Nickname: " << contact.getNickname() << std::endl;
+            std::cout << "Phone Number: " << contact.getPhoneNumber() << std::endl;
+            std::cout << "Darkest Secret: " << contact.getDarkestSecret() << std::endl;
+            }
+    }
+    else {
         std::cout << "Invalid index. Please try again." << std::endl;
     }
 }
