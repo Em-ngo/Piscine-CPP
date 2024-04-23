@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 12:39:46 by engo              #+#    #+#             */
-/*   Updated: 2024/02/04 16:00:24 by engo             ###   ########.fr       */
+/*   Updated: 2024/04/23 21:29:00 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int main() {
         std::cout << "Enter command (ADD, SEARCH, EXIT): ";
         std::string command;
         std::getline(std::cin, command);
+        if (std::cin.eof())
+            return 0;
 
         if (command == "ADD" || command == "add") {
 			
