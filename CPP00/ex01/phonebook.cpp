@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 13:35:27 by engo              #+#    #+#             */
-/*   Updated: 2024/04/24 17:57:26 by engo             ###   ########.fr       */
+/*   Updated: 2024/04/24 18:00:58 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 #include <cstdio>
 
 
-Phonebook::Phonebook() :nextIndex(0) {
+Phonebook::Phonebook() :index_contact(0) {
 }
 
 
 void Phonebook::addContact(Contact contact) {
-    contacts[nextIndex] = contact;
-    nextIndex = (nextIndex + 1) % MAX_CONTACTS;
-    printf("%lu", nextIndex);
+    contacts[index_contact] = contact;
+    index_contact = (index_contact + 1) % MAX_CONTACTS;
+    printf("%lu", index_contact);
     std::cout << "\033[0;32mContact added successfully!\033[00m" << std::endl;
 }
 
@@ -37,7 +37,7 @@ void Phonebook::displayContacts() {
 
     std::cout << "-------------------------------------------\033[00m"<< std::endl;
 
-    size_t startIndex = nextIndex;
+    size_t startIndex = index_contact;
     size_t displayedIndex = 1;
 
     for (size_t i = 0; i < MAX_CONTACTS; ++i) {
