@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 13:35:27 by engo              #+#    #+#             */
-/*   Updated: 2024/04/23 18:18:57 by engo             ###   ########.fr       */
+/*   Updated: 2024/04/24 16:18:09 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Phonebook::Phonebook() :nextIndex(0) {
 void Phonebook::addContact(const Contact contact) {
     contacts[nextIndex] = contact;
     nextIndex = (nextIndex + 1) % MAX_CONTACTS;
-    std::cout << "Contact added successfully!" << std::endl;
+    std::cout << "\033[0;32mContact added successfully!\033[00m" << std::endl;
 }
 
 
@@ -34,13 +34,10 @@ void Phonebook::displayContacts() {
     for (size_t i = 0; i < MAX_CONTACTS; ++i) {
         size_t currentIndex = (startIndex + i) % MAX_CONTACTS;
 
-        // Display the contact only if it exists
         if (!contacts[currentIndex].getFirstName().empty()) {
             std::cout << displayedIndex << "\t" << truncateString(contacts[currentIndex].getFirstName())
                       << "\t\t" << truncateString(contacts[currentIndex].getLastName())
                       << "\t\t" << truncateString(contacts[currentIndex].getNickname()) << std::endl;
-
-            // Increment the displayed index for the next contact
             ++displayedIndex;
         }
     }

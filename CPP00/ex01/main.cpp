@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 12:39:46 by engo              #+#    #+#             */
-/*   Updated: 2024/04/23 21:29:00 by engo             ###   ########.fr       */
+/*   Updated: 2024/04/24 16:11:38 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ int main() {
         std::cout << "Enter command (ADD, SEARCH, EXIT): ";
         std::string command;
         std::getline(std::cin, command);
-        if (std::cin.eof())
-            return 0;
 
         if (command == "ADD" || command == "add") {
 			
@@ -31,23 +29,33 @@ int main() {
             std::string input;
 			
             std::cout << "Enter First Name: ";
-            std::getline(std::cin, input);
+            while (std::getline(std::cin, input) && input.empty()) {
+                std::cout << "\033[0;31mFirst Name cannot be empty.\033[00m \n Please enter First Name: ";
+            }
             newContact.setFirstName(input);
 
             std::cout << "Enter Last Name: ";
-            std::getline(std::cin, input);
+            while (std::getline(std::cin, input) && input.empty()) {
+                std::cout << "\033[0;31mLast Name cannot be empty.\033[00m \n Please enter Last Name: ";
+            }
             newContact.setLastName(input);
 
             std::cout << "Enter Nickname: ";
-            std::getline(std::cin, input);
+            while (std::getline(std::cin, input) && input.empty()) {
+                std::cout << "\033[0;31mNickname cannot be empty.\033[00m \n Please enter Nickname: ";
+            }
             newContact.setNickname(input);
 
             std::cout << "Enter Phone Number: ";
-            std::getline(std::cin, input);
+            while (std::getline(std::cin, input) && input.empty()) {
+                std::cout << "\033[0;31mPhone Number cannot be empty.\033[00m \n Please enter Phone Number: ";
+            }
             newContact.setPhoneNumber(input);
 
             std::cout << "Enter Darkest Secret: ";
-            std::getline(std::cin, input);
+            while (std::getline(std::cin, input) && input.empty()) {
+                std::cout << "\033[0;31mDarkest Secret cannot be empty.\033[00m \n Please enter Darkest Secret: ";
+            }
             newContact.setDarkestSecret(input);
 
             phonebook.addContact(newContact);
