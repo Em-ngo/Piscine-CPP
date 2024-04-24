@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 13:35:27 by engo              #+#    #+#             */
-/*   Updated: 2024/04/24 18:00:58 by engo             ###   ########.fr       */
+/*   Updated: 2024/04/24 18:21:06 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ Phonebook::Phonebook() :index_contact(0) {
 
 void Phonebook::addContact(Contact contact) {
     contacts[index_contact] = contact;
-    index_contact = (index_contact + 1) % MAX_CONTACTS;
     printf("%lu", index_contact);
+    index_contact = (index_contact + 1) % MAX_CONTACTS;
     std::cout << "\033[0;32mContact added successfully!\033[00m" << std::endl;
 }
 
@@ -38,18 +38,15 @@ void Phonebook::displayContacts() {
     std::cout << "-------------------------------------------\033[00m"<< std::endl;
 
     size_t startIndex = index_contact;
-    size_t displayedIndex = 1;
 
     for (size_t i = 0; i < MAX_CONTACTS; ++i) {
         size_t currentIndex = (startIndex + i) % MAX_CONTACTS;
 
         if (!contacts[currentIndex].getFirstName().empty()) {
-            // Chaque champ est affiché avec une largeur fixée à 10 caractères et aligné à droite
-            std::cout << std::setw(10) << std::right << displayedIndex << "\033[0;95m|\033[00m"
+            std::cout << std::setw(10) << std::right << currentIndex + 1 << "\033[0;95m|\033[00m"
                       << std::setw(10) << truncateString(contacts[currentIndex].getFirstName()) << "\033[0;95m|\033[00m"
                       << std::setw(10) << truncateString(contacts[currentIndex].getLastName()) << "\033[0;95m|\033[00m"
                       << std::setw(10) << truncateString(contacts[currentIndex].getNickname()) << std::endl;
-            ++displayedIndex;
         }
     }
 }
@@ -58,7 +55,6 @@ std::string Phonebook::truncateString(std::string str, size_t width) {
    if (str.length() > width) {
         return str.substr(0, width - 1) + '.';
     } else {
-        // Make sure the string is right-aligned to match the width.
         return std::string(width - str.length(), ' ') + str;
     }
 }
