@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 13:35:32 by engo              #+#    #+#             */
-/*   Updated: 2024/04/24 18:01:02 by engo             ###   ########.fr       */
+/*   Updated: 2024/04/24 18:32:30 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Phonebook {
 
 private: 
 
-    static const size_t MAX_CONTACTS = 3;
+    static const size_t MAX_CONTACTS = 8;
     Contact contacts[MAX_CONTACTS];
     size_t index_contact;
     std::string truncateString(std::string str, size_t width = 10);
