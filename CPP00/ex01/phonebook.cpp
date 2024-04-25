@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 13:35:27 by engo              #+#    #+#             */
-/*   Updated: 2024/04/25 18:16:50 by engo             ###   ########.fr       */
+/*   Updated: 2024/04/25 18:48:07 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,18 +62,18 @@ std::string Phonebook::truncateString(std::string str, size_t width) {
 void Phonebook::searchContact(int index) {
         Contact& contact = contacts[index - 1];
     if (index <= 0 || index > 8)
-        std::cout << "Invalid index. Please try again." << std::endl;
+        std::cout << "\033[0;31mInvalid index. Please try again.\033[00m" << std::endl;
     else if (!contact.getFirstName().empty()) {
         if (index >= 1 && (size_t)(index - 1) < MAX_CONTACTS){
-            std::cout << "First Name: " << contact.getFirstName() << std::endl;
-            std::cout << "Last Name: " << contact.getLastName() << std::endl;
-            std::cout << "Nickname: " << contact.getNickname() << std::endl;
-            std::cout << "Phone Number: " << contact.getPhoneNumber() << std::endl;
-            std::cout << "Darkest Secret: " << contact.getDarkestSecret() << std::endl;
+            std::cout << "\033[0;34mFirst Name: \033[00m" << contact.getFirstName() << std::endl;
+            std::cout << "\033[0;34mLast Name: \033[00m" << contact.getLastName() << std::endl;
+            std::cout << "\033[0;34mNickname: \033[00m" << contact.getNickname() << std::endl;
+            std::cout << "\033[0;34mPhone Number: \033[00m" << contact.getPhoneNumber() << std::endl;
+            std::cout << "\033[0;34mDarkest Secret: \033[00m" << contact.getDarkestSecret() << std::endl;
             }
     }
     else {
-        std::cout << "Invalid index. Please try again." << std::endl;
+        std::cout << "\033[0;31mInvalid index. Please try again.\033[00m" << std::endl;
     }
 }
 
