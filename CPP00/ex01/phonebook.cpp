@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 13:35:27 by engo              #+#    #+#             */
-/*   Updated: 2024/04/24 18:31:53 by engo             ###   ########.fr       */
+/*   Updated: 2024/04/25 18:16:50 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@ Phonebook::Phonebook() :index_contact(0) {
 
 
 void Phonebook::addContact(Contact contact) {
+    if (std::cin.eof())
+        return;
     contacts[index_contact] = contact;
-    printf("%lu", index_contact);
     index_contact = (index_contact + 1) % MAX_CONTACTS;
     std::cout << "\033[0;32mContact added successfully!\033[00m" << std::endl;
 }
@@ -28,7 +29,6 @@ void Phonebook::addContact(Contact contact) {
 
 
 void Phonebook::displayContacts() {
-    // En-tête avec la largeur de colonne fixée à 10 caractères et alignement à droite
     std::cout << "\033[0;95m"
               << std::setw(10) << std::right << "Index" << "|"
               << std::setw(10) << "First Name" << "|"
@@ -43,7 +43,6 @@ void Phonebook::displayContacts() {
         size_t currentIndex = (startIndex + i) % MAX_CONTACTS;
 
         if (!contacts[currentIndex].getFirstName().empty()) {
-            // Chaque champ est affiché avec une largeur fixée à 10 caractères et aligné à droite
             std::cout << std::setw(10) << std::right << currentIndex + 1 << "\033[0;95m|\033[00m"
                       << std::setw(10) << truncateString(contacts[currentIndex].getFirstName()) << "\033[0;95m|\033[00m"
                       << std::setw(10) << truncateString(contacts[currentIndex].getLastName()) << "\033[0;95m|\033[00m"
@@ -56,7 +55,6 @@ std::string Phonebook::truncateString(std::string str, size_t width) {
    if (str.length() > width) {
         return str.substr(0, width - 1) + '.';
     } else {
-        // Make sure the string is right-aligned to match the width.
         return std::string(width - str.length(), ' ') + str;
     }
 }

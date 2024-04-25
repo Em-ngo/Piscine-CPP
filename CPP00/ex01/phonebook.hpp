@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 13:35:32 by engo              #+#    #+#             */
-/*   Updated: 2024/04/24 18:32:30 by engo             ###   ########.fr       */
+/*   Updated: 2024/04/25 16:27:27 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 #include <sstream>
 #include <iostream>
 #include <iomanip>
+#include <cstdlib>
 #include <string>
+#include <csignal>
 # include "contact.hpp"
 
 class Phonebook {
