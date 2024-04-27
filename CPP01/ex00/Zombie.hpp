@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 19:59:21 by engo              #+#    #+#             */
-/*   Updated: 2024/04/27 11:58:47 by engo             ###   ########.fr       */
+/*   Updated: 2024/04/27 12:15:09 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ public:
     void announce();
     
 };
-    void randomChump(std::string name); 
-    Zombie* newZombie(std::string name);
+
+
+void randomChump(std::string name); 
+Zombie* newZombie(std::string name);
+
 #endif
