@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 12:14:16 by engo              #+#    #+#             */
-/*   Updated: 2024/04/27 12:36:43 by engo             ###   ########.fr       */
+/*   Updated: 2024/04/27 13:05:56 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Zombie::~Zombie() {
     std::cout << name << " is dead.. " << std::endl;
 }
 
-void Zombie::setName(std::string NewName) {
+void Zombie::getName(std::string NewName) {
     name = NewName;
 }
 
