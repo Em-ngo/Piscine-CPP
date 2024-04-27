@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 15:56:03 by engo              #+#    #+#             */
-/*   Updated: 2024/04/27 16:03:10 by engo             ###   ########.fr       */
+/*   Updated: 2024/04/27 16:28:50 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Weapon::Weapon(std::string input) {
     setType(input);
 }
 
-std::string &Weapon::getType() {
+std::string Weapon::getType() {
     return (this->type);
 }
 
