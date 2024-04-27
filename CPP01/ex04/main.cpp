@@ -6,13 +6,14 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 17:15:55 by engo              #+#    #+#             */
-/*   Updated: 2024/04/27 18:11:30 by engo             ###   ########.fr       */
+/*   Updated: 2024/04/27 18:55:45 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
 #include "Replace.hpp"
+
 
 int main(int ac, char **av) {
     
@@ -31,6 +32,15 @@ int main(int ac, char **av) {
         return 1;
     }
 
+    inFile.seekg(0, std::ios::end);
+    if (inFile.tellg() == 0) {
+        std::cerr << "\033[0;31mError: file is empty, nothing to replace.\n\033[00m";
+        inFile.close();
+        return 1;
+    }
+    
+    inFile.seekg(0, std::ios::beg);
+
     std::string outputFilename = filename + ".replace";
     std::ofstream outFile(outputFilename.c_str());
     if (!outFile) {
@@ -39,14 +49,23 @@ int main(int ac, char **av) {
     }
 
     std::string line;
+    bool foundNonEmptyLine = false;
+    
     while (getline(inFile, line)) {
-        
-        if (s1 == "") {
-            std::cerr << "\033[0;31mError : cannot replace empty string\n\033[00m"; 
+        if (s1.empty()) {
+            std::cerr << "\033[0;31mError: cannot replace empty string\n\033[00m";
             return 1;
         }
+        
+        foundNonEmptyLine = true;
+ 
         std::string replacedLine = replaceAll(line, s1, s2);
         outFile << replacedLine << "\n";
+    }
+
+    if (!foundNonEmptyLine) {
+        std::cerr << "\033[0;31mError: file contains only empty lines, nothing to replace.\n\033[00m";
+        return 1;
     }
 
     inFile.close();
