@@ -14,13 +14,13 @@ OBJDIR =
 DEPS =
 
 SRC =	main.cpp  \
-		Replace.cpp \
+		Harl.cpp \
 
 OBJ :=	$(patsubst %.cpp, $(OBJDIR)%.o, $(SRC))
 SRC :=	$(addprefix $(SRCDIR), $(SRC))
 DEPS :=	$(addprefix $(SRCDIR), $(DEPS))
 
-NAME =	
+NAME =	harl
 
 all :	$(NAME) $(BONUS_NAME)
 
