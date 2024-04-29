@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 19:10:56 by engo              #+#    #+#             */
-/*   Updated: 2024/04/28 13:45:21 by engo             ###   ########.fr       */
+/*   Updated: 2024/04/29 11:53:56 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,14 @@ void Harl::error(void) {
 
 void Harl::complain(std::string level) {
     
-    std::string str[] = {"DEBUG", "INFO", "ERROR", "WARNING"};
+    std::string str[] = {"debug", "info", "error", "warning"};
     PtrFnct tab[] = {&Harl::debug, &Harl::info, &Harl::error, &Harl::warning};
 
     int i = 0;
-    while(level != str[i]) {
-        i++;
-        if (i > 3) {
-            std::cout << "Error : invalid input" << std::endl;
-            return ;
+    while (i < 4) {
+        if (level == str[i]) {
+            (this->*tab[i])();
         }
+        i++;
     }
-    (this->*tab[i])();
 }

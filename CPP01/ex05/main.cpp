@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 13:41:18 by engo              #+#    #+#             */
-/*   Updated: 2024/04/28 13:41:52 by engo             ###   ########.fr       */
+/*   Updated: 2024/04/29 11:25:42 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 int main()
 {
     Harl input;
-    input.complain("DEBUG");
+    input.complain("debug");
     std::cout << std::endl;
-    input.complain("INFO");
+    input.complain("info");
     std::cout << std::endl;
-    input.complain("ERROR");
+    input.complain("error");
     std::cout << std::endl;
-    input.complain("WARNING");
+    input.complain("warning");
     std::cout << std::endl;
     input.complain("");
     
