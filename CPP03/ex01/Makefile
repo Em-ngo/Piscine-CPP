@@ -15,13 +15,13 @@ DEPS =
 
 SRC =	main.cpp  \
 		ClapTrap.cpp \
-		ScavTrap.cpp
+		ScavTrap.cpp \
 
 OBJ :=	$(patsubst %.cpp, $(OBJDIR)%.o, $(SRC))
 SRC :=	$(addprefix $(SRCDIR), $(SRC))
 DEPS :=	$(addprefix $(SRCDIR), $(DEPS))
 
-NAME =	ScavTrap
+NAME =	ClapTrap
 
 all :	$(NAME) $(BONUS_NAME)
 

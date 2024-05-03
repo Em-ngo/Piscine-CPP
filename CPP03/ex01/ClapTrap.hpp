@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:13:26 by engo              #+#    #+#             */
-/*   Updated: 2024/05/02 16:04:36 by engo             ###   ########.fr       */
+/*   Updated: 2024/05/03 11:45:48 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,16 @@ protected :
     
 public :
 
+    ClapTrap(); 
     ClapTrap(std::string name);
+    ClapTrap(const ClapTrap &autre);
     ~ClapTrap();
     void attack(const std::string& target);
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);
     
+    ClapTrap &operator=(ClapTrap const &autre);
+
 };
 
 #endif

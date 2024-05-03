@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/02 16:04:15 by engo              #+#    #+#             */
-/*   Updated: 2024/05/02 16:15:58 by engo             ###   ########.fr       */
+/*   Created: 2024/05/03 11:29:44 by engo              #+#    #+#             */
+/*   Updated: 2024/05/03 12:38:10 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,19 @@
 #include "ClapTrap.hpp"
 
 class ScavTrap : public ClapTrap {
-    
-public:
-    ScavTrap(std::string name);
-    ~ScavTrap();
 
-    void attack(const std::string& target);
-    void takeDamage(unsigned int amount);
-    void beRepaired(unsigned int amount);
+public :
+
+    ScavTrap();
+    ScavTrap(std::string name);
+    ScavTrap(ScavTrap const &autre);
+    ~ScavTrap();
+    
     void guardGate();
+    void attack(const std::string& target);
+    ScavTrap &operator=(const ScavTrap &autre);
+
+
 };
 
 #endif
