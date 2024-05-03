@@ -6,50 +6,66 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:18:10 by engo              #+#    #+#             */
-/*   Updated: 2024/05/02 12:03:22 by engo             ###   ########.fr       */
+/*   Updated: 2024/05/03 11:20:58 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name) : name(name), hitPoints(10), energyPoints(10), attackDamage(0) {
-    std::cout << "ClapTrap " << name << " has been created!" << std::endl;
+ClapTrap::ClapTrap(const std::string name) : name(name), hitPoints(10), energyPoints(10), attackDamage(0) {
+    std::cout << "ClapTrap named " << name << " is born!" << std::endl;
+}
+
+ClapTrap::ClapTrap(const ClapTrap& autre) {
+    this->name = autre.name;
+    this->hitPoints = autre.hitPoints;
+    this->energyPoints = autre.energyPoints;
+    this->attackDamage = autre.attackDamage;
 }
 
 ClapTrap::~ClapTrap() {
-    std::cout << "ClapTrap " << name << " has been destroyed!" << std::endl;
+    std::cout << "ClapTrap " << name << " have been destroyed !" << std::endl;
 }
 
-void ClapTrap::attack(const std::string &target) {
-    if (hitPoints == 0 || energyPoints == 0) {
-            std::cout << "ClapTrap " << name << " can't attack because he has no hit points or energy points left!" << std::endl;
-            return;
+ClapTrap& ClapTrap::operator=(ClapTrap const &autre) {
+    if (this != &autre) {
+        this->hitPoints = autre.hitPoints;
+        this->energyPoints = autre.energyPoints;
+        this->attackDamage = autre.attackDamage;
     }
-    energyPoints--;
-    std::cout << "ClapTrap " << name << " attacks " << target << ", causing " << attackDamage << " points of damage!" << std::endl;
+    return *this;
+}
+
+void ClapTrap::attack(const std::string& target) {
+    if (this->hitPoints == 0 || this->energyPoints == 0)
+        std::cout << "ClapTrap " << name << " can't attack because he has no HP or EP left!" << std::endl;
+    else {
+        std::cout << "ClapTrap " << name << " attacks " << target << ", causing " << this->attackDamage << " points of damage !" << std::endl;
+        energyPoints--;
+    }
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {
-    if (hitPoints == 0) {
-        std::cout << "ClapTrap " << name << " has no hit points left and can't take any more damage!" << std::endl;
-        return;
-    }
-    std::cout << "ClapTrap " << name << " takes " << amount << " points of damage!" << std::endl;
-    hitPoints -= amount;
-    if (hitPoints < 0)
-        hitPoints = 0;
+    if (this->hitPoints < 1)
+        std::cout << "ClapTrap " << name << " has no hitPoints left, he can't take any more damage !" << std::endl;
+    std::cout << "ClapTrap " << name << " takes " << amount << " of damage !";
+    this->hitPoints -= amount;
+    std::cout << " He has " << this->hitPoints << " HP left!" << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
-    if (hitPoints == 0 || energyPoints == 0) {
-            std::cout << "ClapTrap " << name << " has no hit points or energy points left to be repaired!" << std::endl;
-            return;
+    if (this->hitPoints == 0 || this->energyPoints == 0) {
+        std::cout << "ClapTrap " << name << " can't be repaired because he has no HP or EP left!" << std::endl;
+        return ;
     }
-
-    std::cout << "ClapTrap " << name << " is repaired for " << amount << " hit points!" << std::endl;
-    hitPoints += amount;
-    if (hitPoints > 10)
-        hitPoints = 10;
-    energyPoints--;
+    if (this->hitPoints == 10) {
+        std::cout << "ClapTrap " << name << " can't be repaired, he is already full health !" << std::endl;
+        return ;
+    }
+    std::cout << "ClapTrap " << name << " has been repaired for " << amount << " hit points!";
+    this->hitPoints += amount;
+    std::cout << " He now has " << this->hitPoints << " HP!" << std::endl;
+    if (this->hitPoints > 10)
+        this->hitPoints = 10;
 }
 
