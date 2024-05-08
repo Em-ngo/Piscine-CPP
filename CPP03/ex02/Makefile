@@ -22,7 +22,7 @@ OBJ :=	$(patsubst %.cpp, $(OBJDIR)%.o, $(SRC))
 SRC :=	$(addprefix $(SRCDIR), $(SRC))
 DEPS :=	$(addprefix $(SRCDIR), $(DEPS))
 
-NAME =	ClapTrap
+NAME =	FragTrap
 
 all :	$(NAME) $(BONUS_NAME)
 
