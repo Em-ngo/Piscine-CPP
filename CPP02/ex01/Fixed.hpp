@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 20:09:56 by engo              #+#    #+#             */
-/*   Updated: 2024/05/01 10:27:30 by engo             ###   ########.fr       */
+/*   Updated: 2024/05/08 14:48:43 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ public:
     Fixed(float const nb);
     Fixed(const Fixed &autre);
     Fixed &operator=(const Fixed &autre);
-    std::ostream& insererDansFlux(std::ostream& os) const;
     ~Fixed();
 
     int getRawBits() const;

@@ -14,8 +14,8 @@ OBJDIR =
 DEPS =
 
 SRC =	main.cpp \
-		contact.cpp \
-		phonebook.cpp \
+		Contact.cpp \
+		PhoneBook.cpp \
 
 OBJ :=	$(patsubst %.cpp, $(OBJDIR)%.o, $(SRC))
 SRC :=	$(addprefix $(SRCDIR), $(SRC))

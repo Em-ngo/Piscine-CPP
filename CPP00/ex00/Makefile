@@ -13,7 +13,7 @@ SRCDIR = ./
 OBJDIR =
 DEPS =
 
-SRC = megaphone.cpp
+SRC = Megaphone.cpp
 
 OBJ := $(patsubst %.cpp, $(OBJDIR)%.o, $(SRC))
 SRC := $(addprefix $(SRCDIR), $(SRC))

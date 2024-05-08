@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 12:29:43 by engo              #+#    #+#             */
-/*   Updated: 2024/04/27 12:58:51 by engo             ###   ########.fr       */
+/*   Updated: 2024/05/08 14:19:36 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main(int ac, char **av) {
     if (ac >= 3)
         name = av[2];
 
-    horde = zombieHorde(n_Zombie, name);
+    horde = ZombieHorde(n_Zombie, name);
     int i = 0;
     
     while (i < n_Zombie) {

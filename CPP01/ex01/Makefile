@@ -15,7 +15,7 @@ DEPS =
 
 SRC =	main.cpp \
 		Zombie.cpp \
-		zombieHorde.cpp \
+		ZombieHorde.cpp \
 
 OBJ :=	$(patsubst %.cpp, $(OBJDIR)%.o, $(SRC))
 SRC :=	$(addprefix $(SRCDIR), $(SRC))

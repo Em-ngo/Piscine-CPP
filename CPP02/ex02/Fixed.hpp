@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 20:09:56 by engo              #+#    #+#             */
-/*   Updated: 2024/05/01 11:18:54 by engo             ###   ########.fr       */
+/*   Updated: 2024/05/08 14:49:59 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ public:
     Fixed(float const nb);
     Fixed(const Fixed &autre);
     Fixed &operator=(const Fixed &autre);
-    std::ostream& insererDansFlux(std::ostream& os) const;
     ~Fixed();
 
     int getRawBits() const;
@@ -54,10 +53,10 @@ public:
     Fixed operator/(const Fixed& autre) const;
 
     // Opérateurs d'incrémentation et de Fixed
-    Fixed& operator++(); // Pré-incrémentation
-    Fixed operator++(int); // Post-incrémentation
-    Fixed& operator--(); // Pré-décrémentation
-    Fixed operator--(int); // Post-décrémentation
+    Fixed& operator++(); 
+    Fixed operator++(int);
+    Fixed& operator--(); 
+    Fixed operator--(int); 
 
     // Fonctions membres statiques min et max
 

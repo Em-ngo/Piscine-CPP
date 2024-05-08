@@ -15,8 +15,8 @@ DEPS =
 
 SRC =	main.cpp \
 		Zombie.cpp \
-		newZombie.cpp \
-		randomChump.cpp \
+		NewZombie.cpp \
+		RandomChump.cpp \
 
 OBJ :=	$(patsubst %.cpp, $(OBJDIR)%.o, $(SRC))
 SRC :=	$(addprefix $(SRCDIR), $(SRC))

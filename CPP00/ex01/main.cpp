@@ -6,12 +6,12 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 12:39:46 by engo              #+#    #+#             */
-/*   Updated: 2024/04/25 19:28:31 by engo             ###   ########.fr       */
+/*   Updated: 2024/05/08 14:04:02 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "contact.hpp"
-#include "phonebook.hpp"
+#include "Contact.hpp"
+#include "PhoneBook.hpp"
 
 void cleanUpAndExit() {
     std::exit(0);
@@ -22,10 +22,10 @@ void signalHandler(int signal) {
         cleanUpAndExit();
     }
 }
-
+ 
 int main() {
 	
-    Phonebook phonebook;
+    PhoneBook phonebook;
 
     while (1) {
         
