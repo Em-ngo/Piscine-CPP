@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:04:39 by engo              #+#    #+#             */
-/*   Updated: 2024/05/08 17:15:18 by engo             ###   ########.fr       */
+/*   Updated: 2024/05/09 10:54:17 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Animal::Animal() {
     type = "Animal";
-    std::cout << "Animal was called" << std::endl;
+    std::cout << "Animal was born" << std::endl;
 }
 
 Animal::~Animal() {
@@ -38,5 +38,5 @@ Animal &Animal::operator=(const Animal &autre) {
 
 
 void Animal::makeSound() const {
-    std::cout << "Animal's sound" << std::endl;
+    std::cout << "\033[0;32mAnimal's sound\033[00m" << std::endl;
 }

@@ -6,19 +6,19 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:49:21 by engo              #+#    #+#             */
-/*   Updated: 2024/05/08 17:15:49 by engo             ###   ########.fr       */
+/*   Updated: 2024/05/09 11:04:34 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongAnimal.hpp"
 
 WrongAnimal::WrongAnimal() : type("WrongAnimal") {
-    std::cout << "WrongAnimal was born!" << std::endl;
+    std::cout << "WrongAnimal was born" << std::endl;
 }
 
 WrongAnimal::WrongAnimal(WrongAnimal const &autre) {
     *this = autre;
-    std::cout << "WrongAnimal copy constructor called!" << std::endl;
+    std::cout << "Another WrongAnimal was born" << std::endl;
     return;
 }
 
@@ -36,5 +36,5 @@ std::string const WrongAnimal::getType() const {
 }
 
 void    WrongAnimal::makeSound() const {
-    std::cout << this->getType() << " said : [wrong animal noises] !" << std::endl;
+    std::cout << GREEN << this->getType() << " \033[0;32msaid : [wrong animal noises] !\033[00m" << std::endl;
 }
