@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 12:29:43 by engo              #+#    #+#             */
-/*   Updated: 2024/05/08 14:19:36 by engo             ###   ########.fr       */
+/*   Updated: 2024/06/19 19:31:52 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int main(int ac, char **av) {
     int n_Zombie = -1;
     std::string name = "Foo";
     Zombie *horde;
+    int i = 0;
     
     std::cout << "\033[0;34mZombie Horde being created \033[00m" << std::endl;
     if(ac == 1 || atoi(av[1]) <= 0)
@@ -28,7 +29,6 @@ int main(int ac, char **av) {
         name = av[2];
 
     horde = ZombieHorde(n_Zombie, name);
-    int i = 0;
     
     while (i < n_Zombie) {
         horde[i].announce();

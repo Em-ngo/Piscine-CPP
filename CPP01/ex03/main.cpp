@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 16:06:12 by engo              #+#    #+#             */
-/*   Updated: 2024/04/27 16:07:25 by engo             ###   ########.fr       */
+/*   Updated: 2024/06/19 20:14:42 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ int main()
         jim.attack();
         club.setType("some other type of club");
         jim.attack();
-        return 0;
     }
+    return 0;
 }
