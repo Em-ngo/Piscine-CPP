@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 13:52:55 by engo              #+#    #+#             */
-/*   Updated: 2024/04/30 14:35:35 by engo             ###   ########.fr       */
+/*   Updated: 2024/06/22 17:05:59 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,10 @@ Fixed::Fixed(const Fixed &autre) : value(autre.value) {
 
 Fixed& Fixed::operator=(Fixed const &autre) {
     std::cout << "Copy assignement operator called\n";
-    this->value = autre.getRawBits();
+    if (this != &autre) {
+        this->value = autre.getRawBits();
+    }
     return *this;
-
 }
 
 int Fixed::getRawBits() const {
