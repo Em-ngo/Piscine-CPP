@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 11:32:35 by engo              #+#    #+#             */
-/*   Updated: 2024/05/03 12:37:54 by engo             ###   ########.fr       */
+/*   Updated: 2024/06/23 17:47:23 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void ScavTrap::attack(const std::string& target) {
         std::cout << "ScavTrap " << this->name << " can't attack because he has no HP or EP left!" << std::endl;
         return ;
     }
-    std::cout << "ScavTrap " << this->name << " attacks " << target << ", causing " << this->attackDamage << " points of damage !" << std::endl;
+    std::cout << "ScavTrap " << this->name << " attacks " << target << ", causing \033[0;31m" << this->attackDamage << " points of damage !\033[00m" << std::endl;
     this->energyPoints--;
 }
 
