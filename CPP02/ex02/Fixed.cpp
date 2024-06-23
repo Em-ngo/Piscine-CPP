@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 13:52:55 by engo              #+#    #+#             */
-/*   Updated: 2024/05/01 11:34:20 by engo             ###   ########.fr       */
+/*   Updated: 2024/06/23 16:05:11 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,10 @@ Fixed::Fixed(const Fixed &autre) {
 }
 
 Fixed& Fixed::operator=(Fixed const &autre) {
-    this->value = autre.getRawBits();
+    if (this != &autre) {
+        this->value = autre.getRawBits();
+    }
     return *this;
-
 }
 
 int Fixed::getRawBits() const {
@@ -82,11 +83,13 @@ bool Fixed::operator!=(const Fixed& autre) const {
 }
 
 Fixed Fixed::operator+(const Fixed& autre) const {
-    return Fixed(value + autre.value);
+    Fixed res(this->toFloat() + autre.toFloat());
+    return (res);
 }
 
 Fixed Fixed::operator-(const Fixed& autre) const {
-    return Fixed(value - autre.value);
+    Fixed res(this->toFloat() - autre.toFloat());
+    return (res);
 }
 
 Fixed Fixed::operator*(const Fixed& autre) const {
@@ -95,7 +98,8 @@ Fixed Fixed::operator*(const Fixed& autre) const {
 }
 
 Fixed Fixed::operator/(const Fixed& autre) const {
-    return Fixed((value << bitsFractionnaires) / autre.value);
+    Fixed res(this->toFloat() + autre.toFloat());
+    return (res);
 }
 
 Fixed& Fixed::operator++() {

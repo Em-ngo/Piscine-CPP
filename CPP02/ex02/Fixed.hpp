@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 20:09:56 by engo              #+#    #+#             */
-/*   Updated: 2024/05/08 14:49:59 by engo             ###   ########.fr       */
+/*   Updated: 2024/06/23 10:46:07 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ public:
     Fixed operator--(int); 
 
     // Fonctions membres statiques min et max
-
     static Fixed min(const Fixed& a, const Fixed& b);
     static const Fixed& min_ref(const Fixed& a, const Fixed& b);
     static Fixed max(const Fixed& a, const Fixed& b);
