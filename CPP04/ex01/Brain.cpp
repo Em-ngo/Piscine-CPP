@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 22:34:32 by engo              #+#    #+#             */
-/*   Updated: 2024/06/23 22:38:46 by engo             ###   ########.fr       */
+/*   Updated: 2024/06/23 22:40:24 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,3 +33,5 @@ Brain &Brain::operator=(Brain const &autre) {
 Brain::~Brain() {
     std::cout << PINK_B << "Brain's disconnected" << RESET << std::endl;
 }
+
+//implement cat + dogs brain next time
