@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 13:52:55 by engo              #+#    #+#             */
-/*   Updated: 2024/06/23 16:05:11 by engo             ###   ########.fr       */
+/*   Updated: 2024/06/23 16:13:06 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ Fixed Fixed::operator*(const Fixed& autre) const {
 }
 
 Fixed Fixed::operator/(const Fixed& autre) const {
-    Fixed res(this->toFloat() + autre.toFloat());
+    Fixed res(this->toFloat() / autre.toFloat());
     return (res);
 }
 
