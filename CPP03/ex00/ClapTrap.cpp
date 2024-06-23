@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:18:10 by engo              #+#    #+#             */
-/*   Updated: 2024/06/23 17:31:08 by engo             ###   ########.fr       */
+/*   Updated: 2024/06/23 18:34:46 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void ClapTrap::attack(const std::string& target) {
     else {
         std::cout << "ClapTrap " << name << " attacks " << target << ", causing \033[0;31m" << this->attackDamage << " points of damage !\033[00m" << std::endl;
         this->energyPoints--;
+        std::cout << "ClapTrap " << name << " has \033[0;33m" << this->energyPoints << " energy points\033[00m left !" << std::endl;
     }
 }
 
@@ -62,10 +63,14 @@ void ClapTrap::beRepaired(unsigned int amount) {
         std::cout << "ClapTrap " << name << " can't be repaired, he is already full health !" << std::endl;
         return ;
     }
-    std::cout << "ClapTrap " << name << " has been repaired for " << amount << " hit points!";
-    this->hitPoints += amount;
-    std::cout << " He now has \033[0;32m" << this->hitPoints << " HP!\033[00m" << std::endl;
-    if (this->hitPoints > 10)
-        this->hitPoints = 10;
+    else {
+        std::cout << "ClapTrap " << name << " has been repaired for " << amount << " hit points!";
+        this->hitPoints += amount;
+        this->energyPoints -= 1;
+        std::cout << " He now has \033[0;32m" << this->hitPoints << " HP!\033[00m" << std::endl;
+        std::cout << "ClapTrap " << name << " has \033[0;33m" << this->energyPoints << " energy points\033[00m left !" << std::endl;
+        if (this->hitPoints > 10)
+            this->hitPoints = 10;
+    }
 }
 
