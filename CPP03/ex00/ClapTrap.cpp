@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:18:10 by engo              #+#    #+#             */
-/*   Updated: 2024/05/03 11:20:58 by engo             ###   ########.fr       */
+/*   Updated: 2024/06/23 17:25:57 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void ClapTrap::attack(const std::string& target) {
     if (this->hitPoints == 0 || this->energyPoints == 0)
         std::cout << "ClapTrap " << name << " can't attack because he has no HP or EP left!" << std::endl;
     else {
-        std::cout << "ClapTrap " << name << " attacks " << target << ", causing " << this->attackDamage << " points of damage !" << std::endl;
+        std::cout << "ClapTrap " << name << " attacks " << target << ", causing \033[0;31m" << this->attackDamage << " points of damage !\033[00m" << std::endl;
         energyPoints--;
     }
 }
@@ -50,7 +50,7 @@ void ClapTrap::takeDamage(unsigned int amount) {
         std::cout << "ClapTrap " << name << " has no hitPoints left, he can't take any more damage !" << std::endl;
     std::cout << "ClapTrap " << name << " takes " << amount << " of damage !";
     this->hitPoints -= amount;
-    std::cout << " He has " << this->hitPoints << " HP left!" << std::endl;
+    std::cout << " He has \033[0;32m" << this->hitPoints << " HP\033[00m left!" << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
@@ -64,7 +64,7 @@ void ClapTrap::beRepaired(unsigned int amount) {
     }
     std::cout << "ClapTrap " << name << " has been repaired for " << amount << " hit points!";
     this->hitPoints += amount;
-    std::cout << " He now has " << this->hitPoints << " HP!" << std::endl;
+    std::cout << " He now has \033[0;32m" << this->hitPoints << " HP!\033[00m" << std::endl;
     if (this->hitPoints > 10)
         this->hitPoints = 10;
 }

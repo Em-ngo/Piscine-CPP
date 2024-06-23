@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:13:26 by engo              #+#    #+#             */
-/*   Updated: 2024/05/03 10:52:05 by engo             ###   ########.fr       */
+/*   Updated: 2024/06/23 17:14:55 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ public :
     void beRepaired(unsigned int amount);
     
     ClapTrap &operator=(ClapTrap const &autre);
-
-    
 };
 
 #endif
