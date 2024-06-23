@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:18:10 by engo              #+#    #+#             */
-/*   Updated: 2024/06/23 17:25:57 by engo             ###   ########.fr       */
+/*   Updated: 2024/06/23 17:31:08 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void ClapTrap::attack(const std::string& target) {
         std::cout << "ClapTrap " << name << " can't attack because he has no HP or EP left!" << std::endl;
     else {
         std::cout << "ClapTrap " << name << " attacks " << target << ", causing \033[0;31m" << this->attackDamage << " points of damage !\033[00m" << std::endl;
-        energyPoints--;
+        this->energyPoints--;
     }
 }
 
