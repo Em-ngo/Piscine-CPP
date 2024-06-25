@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:13:52 by engo              #+#    #+#             */
-/*   Updated: 2024/05/08 17:14:31 by engo             ###   ########.fr       */
+/*   Updated: 2024/06/25 15:02:31 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ int main() {
 
     std::cout << "\n";
     std::cout << "\033[0;34m Cat class \033[00m" << std::endl;
-    Cat* cat = new Cat();
+    Animal* cat = new Cat();
     std::cout << cat->getType() << std::endl;
     cat->makeSound();
 
     std::cout << "\n";
     std::cout << "\033[0;34m Dog class \033[00m" << std::endl;
-    Dog* dog = new Dog();
+    Animal* dog = new Dog();
     std::cout << dog->getType() << std::endl;
     dog->makeSound();
 
@@ -43,7 +43,7 @@ int main() {
 
     std::cout << "\n";
     std::cout << "\033[0;34m WrongCat class \033[00m" << std::endl;
-    WrongCat* wrongCat = new WrongCat();
+    WrongAnimal* wrongCat = new  WrongCat();
     std::cout << wrongCat->getType() << std::endl;
     wrongCat->makeSound();
 

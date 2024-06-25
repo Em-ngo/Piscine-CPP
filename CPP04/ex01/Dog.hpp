@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:11:26 by engo              #+#    #+#             */
-/*   Updated: 2024/05/09 11:03:07 by engo             ###   ########.fr       */
+/*   Updated: 2024/06/25 13:31:45 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define DOG_HPP
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 # define DEFAULT	"\033[0;39m"
 # define BLACK		"\033[0;30m"
@@ -42,6 +43,9 @@
 # define RESET		"\e[0m"
 
 class Dog : public Animal {
+
+private:
+    Brain* brain;
 
 public:
     Dog();

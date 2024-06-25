@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:04:39 by engo              #+#    #+#             */
-/*   Updated: 2024/05/09 10:54:17 by engo             ###   ########.fr       */
+/*   Updated: 2024/06/25 15:10:13 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Animal::Animal() {
     type = "Animal";
-    std::cout << "Animal was born" << std::endl;
+    std::cout << L_BLUE << "Animal was born" << RESET << std::endl;
 }
 
 Animal::~Animal() {
@@ -27,7 +27,7 @@ Animal::Animal(Animal const &autre) {
 }
 
 std::string const	Animal::getType() const {
-	return (type);
+	return (this->type);
 }
 
 

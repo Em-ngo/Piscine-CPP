@@ -6,18 +6,18 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 22:34:32 by engo              #+#    #+#             */
-/*   Updated: 2024/06/23 22:40:24 by engo             ###   ########.fr       */
+/*   Updated: 2024/06/25 15:28:02 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Brain.hpp"
 
 Brain::Brain() {
-    std::cout << PINK_B << "Brain's connected" << RESET << std::endl;
+    std::cout << PINK << "Brain's connected" << RESET << std::endl;
 }
 
 Brain::Brain(Brain const &autre) {
-    std::cout << PINK_B << "Another brain's connected" << RESET << std::endl;
+    std::cout << PINK << "Another brain's connected" << RESET << std::endl;
     *this = autre;
 }
 
@@ -31,7 +31,5 @@ Brain &Brain::operator=(Brain const &autre) {
 }
 
 Brain::~Brain() {
-    std::cout << PINK_B << "Brain's disconnected" << RESET << std::endl;
+    std::cout << PINK << "Brain's disconnected" << RESET << std::endl;
 }
-
-//implement cat + dogs brain next time

@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:13:00 by engo              #+#    #+#             */
-/*   Updated: 2024/05/09 10:54:32 by engo             ###   ########.fr       */
+/*   Updated: 2024/06/25 15:28:44 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 Dog::Dog() : Animal() {
     this->type = "Dog";
-    std::cout << "Dog was born" << std::endl;
+    std::cout << GREEN << "Dog was born" << RESET << std::endl;
+    this->brain = new Brain();
 }
 
 Dog::Dog(Dog const &autre) : Animal() {
     *this = autre;
+    brain = new Brain(*autre.brain);
     return ;
 }
 
@@ -28,6 +30,7 @@ Dog &Dog::operator=(Dog const &autre) {
 }
 
 Dog::~Dog() {
+    delete this->brain;
     std::cout << "Dog destructor called" << std::endl;
 }
 
