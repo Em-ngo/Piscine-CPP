@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:13:52 by engo              #+#    #+#             */
-/*   Updated: 2024/06/25 15:02:31 by engo             ###   ########.fr       */
+/*   Updated: 2024/06/25 15:48:03 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,11 @@ int main() {
 
     std::cout << "\n";
     std::cout << "\033[0;31m Destructors \033[00m" << std::endl;
-    delete animal;
     delete cat;
     delete dog;
-    delete wrongAnimal;
+    delete animal;
     delete wrongCat;
+    delete wrongAnimal;
 
     return 0;
 }
