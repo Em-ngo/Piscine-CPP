@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:13:52 by engo              #+#    #+#             */
-/*   Updated: 2024/07/02 23:22:18 by engo             ###   ########.fr       */
+/*   Updated: 2024/07/02 23:33:14 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int main() {
 
 	std::cout << std::endl;
 
+	std::cout << RED << "----------DESTRUCTORS----------" << RESET << std::endl;
     for (int j = 0; j < NB_ANIMALS; j++)
 		delete animal[j];
     return 0;
