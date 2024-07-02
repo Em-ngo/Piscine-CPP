@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:04:03 by engo              #+#    #+#             */
-/*   Updated: 2024/05/09 11:02:58 by engo             ###   ########.fr       */
+/*   Updated: 2024/07/02 23:06:27 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <string>
+#include "Brain.hpp"
 
 # define DEFAULT	"\033[0;39m"
 # define BLACK		"\033[0;30m"
@@ -57,6 +58,7 @@ public:
     virtual void makeSound() const;
     
     Animal &operator=(const Animal &autre);
+    virtual Brain        *getBrain() const = 0;
     
 
 };

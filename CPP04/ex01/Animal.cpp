@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:04:39 by engo              #+#    #+#             */
-/*   Updated: 2024/06/25 15:10:13 by engo             ###   ########.fr       */
+/*   Updated: 2024/07/02 23:28:05 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Animal::Animal() {
 }
 
 Animal::~Animal() {
-    std::cout << "Animal destructor called" << std::endl;
+    std::cout << BLUE << "Animal destructor called" << RESET << std::endl;
 }
 
 Animal::Animal(Animal const &autre) {

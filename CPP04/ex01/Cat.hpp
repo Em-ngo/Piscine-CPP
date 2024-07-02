@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:11:26 by engo              #+#    #+#             */
-/*   Updated: 2024/06/25 13:31:49 by engo             ###   ########.fr       */
+/*   Updated: 2024/07/02 23:00:52 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ public:
     Cat &operator=(Cat const &autre);
     
     void makeSound() const;
+    Brain   *getBrain() const;
 };
 
 #endif
