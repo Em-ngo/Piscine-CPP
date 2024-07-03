@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:13:00 by engo              #+#    #+#             */
-/*   Updated: 2024/07/03 11:12:27 by engo             ###   ########.fr       */
+/*   Updated: 2024/07/03 16:24:47 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void Dog::makeSound() const {
     std::cout << "\033[0;32mWoof Woof!\033[00m" << std::endl;
 }
 
-Brain	*Dog::getBrain() const
-{
+Brain	*Dog::getBrain() const {
 	return (this->brain);
 }
