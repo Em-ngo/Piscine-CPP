@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:13:00 by engo              #+#    #+#             */
-/*   Updated: 2024/07/02 23:27:51 by engo             ###   ########.fr       */
+/*   Updated: 2024/07/03 11:12:27 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ Dog::Dog() : Animal() {
 
 Dog::Dog(Dog const &autre) : Animal() {
     *this = autre;
+    std::cout << GREEN << "Another Dog was born" << RESET << std::endl;
     brain = new Brain(*autre.brain);
     return ;
 }
