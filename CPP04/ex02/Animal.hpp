@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:04:03 by engo              #+#    #+#             */
-/*   Updated: 2024/07/03 11:30:51 by engo             ###   ########.fr       */
+/*   Updated: 2024/07/03 16:38:18 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ public:
     
     Animal &operator=(const Animal &autre);
     virtual Brain        *getBrain() const = 0;
-    
 
 };
 

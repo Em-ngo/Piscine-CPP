@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:13:52 by engo              #+#    #+#             */
-/*   Updated: 2024/07/03 11:44:16 by engo             ###   ########.fr       */
+/*   Updated: 2024/07/03 16:59:56 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 int main() {
 
     // Animal a; //Classe abstraite, non instanciable
+
     std::cout << "-----Creating Cat Class------" << std::endl;
     Cat b; {
         Cat c(b);
