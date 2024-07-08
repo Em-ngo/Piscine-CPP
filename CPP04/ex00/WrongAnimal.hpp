@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:49:02 by engo              #+#    #+#             */
-/*   Updated: 2024/05/09 11:03:12 by engo             ###   ########.fr       */
+/*   Updated: 2024/07/08 15:18:49 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ class WrongAnimal {
 		WrongAnimal	&operator=(WrongAnimal const &rhs);
 
 		std::string const		getType() const;
-		void					makeSound() const;
+		virtual void			makeSound() const;
 
 	protected :
 		std::string		type;

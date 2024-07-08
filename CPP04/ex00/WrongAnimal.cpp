@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:49:21 by engo              #+#    #+#             */
-/*   Updated: 2024/05/09 11:04:34 by engo             ###   ########.fr       */
+/*   Updated: 2024/07/03 16:13:09 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,5 @@ std::string const WrongAnimal::getType() const {
 }
 
 void    WrongAnimal::makeSound() const {
-    std::cout << GREEN << this->getType() << " \033[0;32msaid : [wrong animal noises] !\033[00m" << std::endl;
+    std::cout << GREEN << "WrongAnimal said : [wrong animal noises] !\033[00m" << std::endl;
 }

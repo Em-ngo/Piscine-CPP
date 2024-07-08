@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:55:19 by engo              #+#    #+#             */
-/*   Updated: 2024/05/09 11:03:28 by engo             ###   ########.fr       */
+/*   Updated: 2024/07/03 16:14:06 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,5 @@ WrongCat &WrongCat::operator=(WrongCat const &autre) {
 }
 
 void WrongCat::makeSound() const {
-    std::cout << GREEN << this->getType() << " \033[0;32msaid : [wrong cat noises]..\033[00m" << std::endl;
+    std::cout << GREEN << "WrongCat said : [wrong cat noises]..\033[00m" << std::endl;
 }
