@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 22:34:32 by engo              #+#    #+#             */
-/*   Updated: 2024/07/09 15:47:14 by engo             ###   ########.fr       */
+/*   Updated: 2024/07/09 16:25:43 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Brain::Brain(Brain const &autre) {
 
 Brain &Brain::operator=(Brain const &autre) {
   int i = 0;
-  while (i < 5) {
+  while (i < 100) {
     this->ideas[i] = autre.ideas[i];
     i++;
   }
@@ -31,7 +31,7 @@ Brain &Brain::operator=(Brain const &autre) {
 }
 
 void    Brain::setIdeas(std::string str) {
-  for (int i = 0; i < 5; i++)
+  for (int i = 0; i < 100; i++)
     ideas[i] = str;
 }
 
@@ -41,7 +41,7 @@ Brain::~Brain() {
 }
 
 void Brain::printIdeas() const {
-    for (int i = 0; i < 5; ++i) {
+    for (int i = 0; i < 100; ++i) {
         std::cout << ideas[i] << std::endl;
     }
 }
