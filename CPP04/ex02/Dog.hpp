@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:11:26 by engo              #+#    #+#             */
-/*   Updated: 2024/07/02 23:01:00 by engo             ###   ########.fr       */
+/*   Updated: 2024/07/09 15:06:06 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,9 @@ public:
     
     void makeSound() const;
     Brain *getBrain() const;
+    void	setIdeas(std::string str);
+    void     printIdeas() const;
+
 };
 
 #endif

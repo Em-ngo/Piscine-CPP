@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:13:00 by engo              #+#    #+#             */
-/*   Updated: 2024/07/03 11:12:27 by engo             ###   ########.fr       */
+/*   Updated: 2024/07/09 15:55:33 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,15 @@ Dog::Dog() : Animal() {
 }
 
 Dog::Dog(Dog const &autre) : Animal() {
-    *this = autre;
+    this->type = autre.type;
     std::cout << GREEN << "Another Dog was born" << RESET << std::endl;
-    brain = new Brain(*autre.brain);
+    this->brain = new Brain(*autre.brain);
     return ;
 }
 
 Dog &Dog::operator=(Dog const &autre) {
+    delete this->brain;
+    this->brain = new Brain(*autre.brain);
     this->type = autre.type;
     return *this;
 }
@@ -39,7 +41,15 @@ void Dog::makeSound() const {
     std::cout << "\033[0;32mWoof Woof!\033[00m" << std::endl;
 }
 
-Brain	*Dog::getBrain() const
-{
+Brain	*Dog::getBrain() const {
 	return (this->brain);
+}
+
+void Dog::printIdeas() const { 
+    brain->printIdeas();
+}
+
+void	Dog::setIdeas(std::string str)
+{
+	brain->setIdeas(str);
 }

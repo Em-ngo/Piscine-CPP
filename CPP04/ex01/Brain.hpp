@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 22:31:03 by engo              #+#    #+#             */
-/*   Updated: 2024/07/08 15:20:47 by engo             ###   ########.fr       */
+/*   Updated: 2024/07/09 15:12:27 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ public :
     std::string ideas[100];
     
     Brain &operator=(Brain const &autre);
+    void    setIdeas(std::string str);
+    void    printIdeas() const;
 
 };
 

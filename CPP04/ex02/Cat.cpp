@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:13:00 by engo              #+#    #+#             */
-/*   Updated: 2024/07/03 11:25:15 by engo             ###   ########.fr       */
+/*   Updated: 2024/07/09 16:00:12 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,15 @@ Cat::Cat() : Animal() {
 }
 
 Cat::Cat(Cat const &autre) : Animal() {
-    *this = autre;
-    std::cout << YELLOW << "Another Cat was born" << RESET << std::endl;
+    this->type = autre.type;
     brain = new Brain(*autre.brain);
+    std::cout << YELLOW << "Another Cat was born" << RESET << std::endl;
     return ;
 }
 
 Cat &Cat::operator=(Cat const &autre) {
+    delete this->brain;
+    this->brain = new Brain(*autre.brain);
     this->type = autre.type;
     return *this;
 }
@@ -39,7 +41,14 @@ void Cat::makeSound() const {
     std::cout << "\033[0;32mMiaou!\033[00m" << std::endl;
 }
 
-Brain	*Cat::getBrain() const
-{
+void	Cat::setIdeas(std::string str) {
+	brain->setIdeas(str);
+}
+
+void Cat::printIdeas() const { 
+    brain->printIdeas();
+}
+
+Brain	*Cat::getBrain() const {
 	return (this->brain);
 }
