@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:13:00 by engo              #+#    #+#             */
-/*   Updated: 2024/07/09 16:00:12 by engo             ###   ########.fr       */
+/*   Updated: 2024/07/09 22:45:04 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,17 @@ Cat::Cat() : Animal() {
 
 Cat::Cat(Cat const &autre) : Animal() {
     this->type = autre.type;
-    brain = new Brain(*autre.brain);
+    brain = new Brain(*autre.brain); // deep copy
     std::cout << YELLOW << "Another Cat was born" << RESET << std::endl;
     return ;
 }
 
 Cat &Cat::operator=(Cat const &autre) {
-    delete this->brain;
-    this->brain = new Brain(*autre.brain);
-    this->type = autre.type;
+    if (this != &autre) {
+        delete this->brain;
+        this->brain = new Brain(*autre.brain); // deep copy 
+        this->type = autre.type;
+    }
     return *this;
 }
 

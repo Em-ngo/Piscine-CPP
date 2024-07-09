@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:13:52 by engo              #+#    #+#             */
-/*   Updated: 2024/07/03 16:14:24 by engo             ###   ########.fr       */
+/*   Updated: 2024/07/09 22:58:52 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,13 @@ int main() {
     std::cout << "\033[0;34m WrongCat class \033[00m" << std::endl;
     WrongAnimal* wrongCat = new  WrongCat();
     std::cout << wrongCat->getType() << std::endl;
-    wrongCat->makeSound();
+    wrongCat->makeSound(); // prints WrongAnimal's sound because makeSound(); isn't virtual.
+
+    std::cout << "\n";
+    std::cout << "\033[0;34m _WrongCat class \033[00m" << std::endl;
+    WrongCat* _wrongCat = new WrongCat();
+    std::cout << _wrongCat->getType() << std::endl;
+    _wrongCat->makeSound(); // uses the right WrontCat's sound 
 
     std::cout << "\n";
     std::cout << "\033[0;31m Destructors \033[00m" << std::endl;
@@ -54,5 +60,6 @@ int main() {
     delete dog;
     delete wrongAnimal;
     delete wrongCat;
+    delete _wrongCat;
     return 0;
 }

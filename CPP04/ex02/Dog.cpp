@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:13:00 by engo              #+#    #+#             */
-/*   Updated: 2024/07/09 16:11:28 by engo             ###   ########.fr       */
+/*   Updated: 2024/07/09 23:06:30 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,16 @@ Dog::Dog() : AAnimal() {
 Dog::Dog(Dog const &autre) : AAnimal() {
     this->type = autre.type;
     std::cout << GREEN << "Another Dog was born" << RESET << std::endl;
-    this->brain = new Brain(*autre.brain);
+    this->brain = new Brain(*autre.brain); // deep copy;
     return ;
 }
 
 Dog &Dog::operator=(Dog const &autre) {
-    delete this->brain;
-    this->brain = new Brain(*autre.brain);
-    this->type = autre.type;
+    if (this != &autre) {
+        delete this->brain;
+        this->brain = new Brain(*autre.brain); // deep copy
+        this->type = autre.type;
+    }
     return *this;
 }
 
