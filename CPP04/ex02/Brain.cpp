@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 22:34:32 by engo              #+#    #+#             */
-/*   Updated: 2024/07/09 22:36:28 by engo             ###   ########.fr       */
+/*   Updated: 2024/07/09 23:22:15 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,20 @@ Brain::Brain() {
 
 Brain::Brain(Brain const &autre) {
     std::cout << PINK << "Another brain's connected" << RESET << std::endl;
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < 100; i++)
       ideas[i] = autre.ideas[i];
 }
 
 Brain &Brain::operator=(Brain const &autre) {
   if (this != &autre) {
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < 100; i++)
       ideas[i] = autre.ideas[i];
   }
   return (*this);
 }
 
 void    Brain::setIdeas(std::string str) {
-  for (int i = 0; i < 5; i++)
+  for (int i = 0; i < 100; i++)
     ideas[i] = str;
 }
 
@@ -41,7 +41,7 @@ Brain::~Brain() {
 }
 
 void Brain::printIdeas() const {
-    for (int i = 0; i < 5; ++i) {
+    for (int i = 0; i < 5; ++i) { // only 5 to not print the whole tab of ideas[100]..
         std::cout << ideas[i] << std::endl;
     }
 }
