@@ -16,7 +16,7 @@ DEPS =
 SRC =	main.cpp  \
 		Dog.cpp	\
 		Cat.cpp	\
-		Animal.cpp \
+		AAnimal.cpp \
 		WrongAnimal.cpp \
 		WrongCat.cpp	\
 		Brain.cpp

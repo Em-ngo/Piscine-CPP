@@ -6,19 +6,19 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:13:00 by engo              #+#    #+#             */
-/*   Updated: 2024/07/09 15:55:33 by engo             ###   ########.fr       */
+/*   Updated: 2024/07/09 16:11:28 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog() : Animal() {
+Dog::Dog() : AAnimal() {
     this->brain = new Brain();
     this->type = "Dog";
     std::cout << GREEN << "Dog was born" << RESET << std::endl;
 }
 
-Dog::Dog(Dog const &autre) : Animal() {
+Dog::Dog(Dog const &autre) : AAnimal() {
     this->type = autre.type;
     std::cout << GREEN << "Another Dog was born" << RESET << std::endl;
     this->brain = new Brain(*autre.brain);

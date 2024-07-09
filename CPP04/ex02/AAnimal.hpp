@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:04:03 by engo              #+#    #+#             */
-/*   Updated: 2024/07/03 16:38:18 by engo             ###   ########.fr       */
+/*   Updated: 2024/07/09 16:10:35 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,21 +43,21 @@
 # define WHITE_B	"\033[1;97m"
 # define RESET		"\e[0m"
 
-class Animal {
+class AAnimal {
     
 protected:
 
     std::string type;
 
 public:
-    Animal();
-    Animal(Animal const &autre);
-    virtual ~Animal();
+    AAnimal();
+    AAnimal(AAnimal const &autre);
+    virtual ~AAnimal();
     
     std::string const		getType() const;
     virtual void makeSound() const = 0;
     
-    Animal &operator=(const Animal &autre);
+    AAnimal &operator=(const AAnimal &autre);
     virtual Brain        *getBrain() const = 0;
 
 };

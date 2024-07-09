@@ -6,14 +6,14 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:11:26 by engo              #+#    #+#             */
-/*   Updated: 2024/07/09 15:05:37 by engo             ###   ########.fr       */
+/*   Updated: 2024/07/09 16:13:26 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CAT_HPP
 #define CAT_HPP
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
 # define DEFAULT	"\033[0;39m"
@@ -42,7 +42,7 @@
 # define WHITE_B	"\033[1;97m"
 # define RESET		"\e[0m"
 
-class Cat : public Animal {
+class Cat : public AAnimal {
 
 private:
      Brain* brain;

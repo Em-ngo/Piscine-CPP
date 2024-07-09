@@ -6,19 +6,19 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:13:00 by engo              #+#    #+#             */
-/*   Updated: 2024/07/09 16:00:12 by engo             ###   ########.fr       */
+/*   Updated: 2024/07/09 16:11:34 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat() : Animal() {
+Cat::Cat() : AAnimal() {
     this->brain = new Brain();
     this->type = "Cat";
     std::cout << YELLOW << "Cat was born" << RESET << std::endl;
 }
 
-Cat::Cat(Cat const &autre) : Animal() {
+Cat::Cat(Cat const &autre) : AAnimal() {
     this->type = autre.type;
     brain = new Brain(*autre.brain);
     std::cout << YELLOW << "Another Cat was born" << RESET << std::endl;
