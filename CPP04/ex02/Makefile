@@ -7,7 +7,7 @@ _PURPLE=\033[0;95m
 _CYAN=\033[0;36m
 _WHITE=\033[0;37m
 
-CC =	c++
+CXX =	c++
 CFLAGS =	-Wall -Werror -Wextra -g -std=c++98
 SRCDIR =	./
 OBJDIR =
@@ -30,11 +30,11 @@ NAME =	animal
 all :	$(NAME) $(BONUS_NAME)
 
 $(NAME):	$(OBJ)
-		@$(CC) $^ -o $@
+		@$(CXX) $^ -o $@
 
 %.o:	$(SRCDIR)%.cpp $(DEPS)
 	@printf "$(_PURPLE)Generating obj... %-33.33s\r$(_NC)" $(notdir $@)
-	@$(CC) -c $(CFLAGS) $(DEPS) $^
+	@$(CXX) -c $(CFLAGS) $(DEPS) $^
 
 clean :
 	@printf "$(_RED)Supressing obj... %-33.33s\r$(_NC)" $(notdir $@)
