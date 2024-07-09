@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:04:39 by engo              #+#    #+#             */
-/*   Updated: 2024/07/02 23:28:05 by engo             ###   ########.fr       */
+/*   Updated: 2024/07/09 23:13:42 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ std::string const	Animal::getType() const {
 
 
 Animal &Animal::operator=(const Animal &autre) {
-    this->type = autre.type;
+    if (this != &autre)
+        this->type = autre.type;
     return *this;
 }
 

@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:13:00 by engo              #+#    #+#             */
-/*   Updated: 2024/05/09 10:54:32 by engo             ###   ########.fr       */
+/*   Updated: 2024/07/09 23:12:06 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ Dog::Dog(Dog const &autre) : Animal() {
 }
 
 Dog &Dog::operator=(Dog const &autre) {
-    this->type = autre.type;
+    if (this != &autre)
+        this->type = autre.type;
     return *this;
 }
 

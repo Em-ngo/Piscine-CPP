@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:49:21 by engo              #+#    #+#             */
-/*   Updated: 2024/05/09 11:04:34 by engo             ###   ########.fr       */
+/*   Updated: 2024/07/09 23:14:47 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ WrongAnimal::~WrongAnimal() {
 }
 
 WrongAnimal &WrongAnimal::operator=(WrongAnimal const &autre) {
-    this->type = autre.type;
+    if (this != &autre)
+        this->type = autre.type;
     return *this;
 }
 

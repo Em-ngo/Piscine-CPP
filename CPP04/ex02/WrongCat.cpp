@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:55:19 by engo              #+#    #+#             */
-/*   Updated: 2024/05/09 11:03:28 by engo             ###   ########.fr       */
+/*   Updated: 2024/07/09 23:14:55 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ WrongCat::~WrongCat() {
 }
 
 WrongCat &WrongCat::operator=(WrongCat const &autre) {
-    this->type = autre.type;
+    if (this != &autre)
+        this->type = autre.type;
     return *this;
 }
 
