@@ -5,15 +5,19 @@
 #include <stdexcept>
 #include <cstdlib> 
 
-RPN::RPN() {
+RPN::RPN() {}
 
+RPN::~RPN() {}
+
+RPN::RPN(RPN const &) {}
+
+RPN &RPN::operator=(RPN const &) {
+    return *this;
 }
 
-RPN::~RPN() {
-
-}
 
 int RPN::evaluate(const std::string& expression) {
+
     std::stack<int> stack;
     std::stringstream ss(expression); 
     std::string token;
