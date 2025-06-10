@@ -21,7 +21,7 @@ OBJ :=	$(patsubst %.cpp, $(OBJDIR)%.o, $(SRC))
 SRC :=	$(addprefix $(SRCDIR), $(SRC))
 DEPS :=	$(addprefix $(SRCDIR), $(DEPS))
 
-NAME = PMergeMe
+NAME = PmergeMe
 
 
 all :	$(NAME) $(BONUS_NAME)
