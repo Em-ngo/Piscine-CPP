@@ -83,6 +83,9 @@ void PmergeMe::createPairs(T &container, std::vector<std::pair<int, int> > &pair
     }
 }
 
+// [4, 3, 8, 1, 7] -> Créer des paires (min, max) et straggler = chiffre orphelin
+// [3,4], [1,8], [7]
+
 template <typename T>
 void PmergeMe::sortBigElements(std::vector<std::pair<int, int> > &pairs, T &sortedBigs) {
     for (size_t i = 0; i < pairs.size(); i++) {
@@ -90,6 +93,9 @@ void PmergeMe::sortBigElements(std::vector<std::pair<int, int> > &pairs, T &sort
     }
     std::sort(sortedBigs.begin(), sortedBigs.end());
 }
+
+// Extraire les nombres les plus grands de chaque paire et les trie 
+// On prend 4 et 8 -> on trie [4, 8] 
 
 template <typename T>
 void PmergeMe::insertSmalls(std::vector<std::pair<int, int> > &pairs, T &sortedBigs, int straggler) {
@@ -102,3 +108,6 @@ void PmergeMe::insertSmalls(std::vector<std::pair<int, int> > &pairs, T &sortedB
         sortedBigs.insert(pos, straggler);
     }
 }
+
+// Reste 3 et 1, on insère 1 -> [1, 4, 8] et ensuite 3 -> [1, 3, 4, 8]
+// Si straggler != -1 on insère aussi avec lower_bound.

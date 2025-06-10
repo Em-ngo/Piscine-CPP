@@ -1,5 +1,6 @@
 #include "PmergeMe.hpp"
 #include <cstdlib>
+#include <set>
 
 int main(int ac, char** av) {
     if (ac < 2) {
@@ -8,6 +9,8 @@ int main(int ac, char** av) {
     }
 
     std::vector<int> numbers;
+    std::set<int> seen;
+
     for (int i = 1; i < ac; i++) {
         std::string arg(av[i]);
         if (arg.find_first_not_of("0123456789") != std::string::npos) {
@@ -16,6 +19,10 @@ int main(int ac, char** av) {
         }
         int num = std::atoi(arg.c_str());
         if (num <= 0) {
+            std::cerr << "Error" << std::endl;
+            return 1;
+        }
+        if (!seen.insert(num).second) {
             std::cerr << "Error" << std::endl;
             return 1;
         }
