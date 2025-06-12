@@ -10,7 +10,6 @@ PmergeMe&PmergeMe::operator=(PmergeMe const &) {
     return *this;
 }
 
-
 PmergeMe::PmergeMe(PmergeMe const &) {}
 
 
@@ -49,7 +48,25 @@ void PmergeMe::sortAndPrint(const std::vector<int> &numbers) {
     std::cout << "Time to process a range of " << numbers.size()
               << " elements with std::vector : " << timeVec << " us" << std::endl;
     std::cout << "Time to process a range of " << numbers.size()
-              << " elements with std::deque : " << timeDeq << " us" << std::endl;
+    << " elements with std::deque : " << timeDeq << " us" << std::endl;
+}
+
+template <typename T>
+void PmergeMe::createPairs(T &container, std::vector<std::pair<int, int> > &pairs, int &straggler) {
+    typename T::iterator it = container.begin();
+    while (it != container.end()) {
+        int first = *it;
+        ++it;
+        if (it != container.end()) {
+            int second = *it;
+            ++it;
+            if (first > second) 
+                std::swap(first, second);
+            pairs.push_back(std::make_pair(first, second));
+        } else {
+            straggler = first;
+        }
+    }
 }
 
 void PmergeMe::fordJohnsonSort(std::vector<int> &vec) {
@@ -98,23 +115,6 @@ void PmergeMe::fordJohnsonSort(std::deque<int> &deq) {
     deq = sortedBigs;
 }
 
-template <typename T>
-void PmergeMe::createPairs(T &container, std::vector<std::pair<int, int> > &pairs, int &straggler) {
-    typename T::iterator it = container.begin();
-    while (it != container.end()) {
-        int first = *it;
-        ++it;
-        if (it != container.end()) {
-            int second = *it;
-            ++it;
-            if (first > second) 
-                std::swap(first, second);
-            pairs.push_back(std::make_pair(first, second));
-        } else {
-            straggler = first;
-        }
-    }
-}
 
 // Génère la séquence de Jacobsthal : 1, 3, 5, 11, 21, 43, 85, ...
 std::vector<size_t> PmergeMe::generateJacobsthalSequence(size_t n) {
@@ -129,7 +129,7 @@ std::vector<size_t> PmergeMe::generateJacobsthalSequence(size_t n) {
     jacobsthal.push_back(3);
     
     for (size_t i = 2; jacobsthal.back() < n; i++) {
-        size_t next = jacobsthal[i-1] + 2 * jacobsthal[i-2];
+        size_t next = jacobsthal[i - 1] + 2 * jacobsthal[i - 2];
         if (next > n) break;
         jacobsthal.push_back(next);
     }
@@ -140,7 +140,8 @@ std::vector<size_t> PmergeMe::generateJacobsthalSequence(size_t n) {
 // Génère l'ordre d'insertion basé sur la séquence de Jacobsthal
 std::vector<size_t> PmergeMe::generateInsertionOrder(size_t n) {
     std::vector<size_t> order;
-    if (n == 0) return order;
+    if (n == 0) 
+        return order;
     
     std::vector<size_t> jacobsthal = generateJacobsthalSequence(n);
     std::vector<bool> inserted(n + 1, false);
@@ -152,7 +153,7 @@ std::vector<size_t> PmergeMe::generateInsertionOrder(size_t n) {
     // Pour chaque nombre de Jacobsthal, insérer les éléments en ordre décroissant
     for (size_t i = 1; i < jacobsthal.size(); i++) {
         size_t jacob_num = jacobsthal[i];
-        size_t prev_jacob = jacobsthal[i-1];
+        size_t prev_jacob = jacobsthal[i - 1];
         
         // Insérer de jacob_num vers prev_jacob+1 (ordre décroissant)
         for (size_t j = std::min(jacob_num, n); j > prev_jacob && !inserted[j]; j--) {
@@ -173,7 +174,6 @@ std::vector<size_t> PmergeMe::generateInsertionOrder(size_t n) {
 
 template <typename T>
 void PmergeMe::insertSmallsWithJacobsthal(std::vector<std::pair<int, int> > &pairs, T &sortedBigs, int straggler) {
-    // Si straggler seul et pas de pairs, insert le straggler
     if (pairs.empty()) {
         if (straggler != -1) {
             typename T::iterator pos = std::lower_bound(sortedBigs.begin(), sortedBigs.end(), straggler);
