@@ -4,16 +4,8 @@
 #include <string>
 #include <iostream>
 
-class RPN {
 
-private:
-    RPN(RPN const &);
-    RPN &operator=(RPN const &);
+static int evaluate(const std::string &expression);
 
-public:
-    RPN();
-    ~RPN();
-    static int evaluate(const std::string &expression);
-};
 
 #endif

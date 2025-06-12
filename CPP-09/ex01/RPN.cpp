@@ -4,19 +4,10 @@
 #include <stack>
 #include <stdexcept>
 #include <cstdlib> 
+#include <algorithm> 
+#include <cctype>
 
-RPN::RPN() {}
-
-RPN::~RPN() {}
-
-RPN::RPN(RPN const &) {}
-
-RPN &RPN::operator=(RPN const &) {
-    return *this;
-}
-
-
-int RPN::evaluate(const std::string& expression) {
+int evaluate(const std::string& expression) {
 
     std::stack<int> stack;
     std::stringstream ss(expression); 
@@ -27,7 +18,7 @@ int RPN::evaluate(const std::string& expression) {
             stack.push(token[0] - '0');
         } else if (token == "+" || token == "-" || token == "*" || token == "/") {
             if (stack.size() < 2) {
-                throw std::runtime_error("Error : Not enough operands.\n");
+                throw std::runtime_error("Error : Not enough operands.");
             }
 
             int b = stack.top(); stack.pop();
