@@ -78,6 +78,36 @@ void BitcoinExchange::loadBitcoinPrices(const std::string &csvFile) {
     file.close();
 }
 
+bool isValidNumber(const std::string &str) {
+    if (str.empty())
+        return false;
+
+    bool hasDot = false;
+    bool hasDigit = false;
+    size_t i = 0;
+
+    if (str[i] == '+' || str[i] == '-') {
+        if (str.length() == 1)
+            return false; // si la string = juste + ou -
+        ++i;
+    }
+
+    for (; i < str.length(); ++i) {
+        if (isdigit(str[i])) {
+            hasDigit = true;
+        } else if (str[i] == '.') {
+            if (hasDot)
+                return false;
+            hasDot = true;
+        } else {
+            return false; // char invalide
+        }
+    }
+
+    return hasDigit;
+}
+
+
 void BitcoinExchange::processInputFile(const std::string &inputFile) const {
     std::ifstream file(inputFile.c_str()); 
     if (!file.is_open()) {
@@ -100,8 +130,6 @@ void BitcoinExchange::processInputFile(const std::string &inputFile) const {
     }
 
     std::string line;
-    getline(file, line); 
-
     while (getline(file, line)) {
         std::stringstream ss(line);  
         std::string date, valueStr;
@@ -122,7 +150,12 @@ void BitcoinExchange::processInputFile(const std::string &inputFile) const {
             continue;
         }
 
-        double value = atof(valueStr.c_str());  
+        if (!isValidNumber(valueStr)) {
+            std::cerr << "Error: invalid number => " << valueStr << std::endl;
+            continue;
+        }
+        
+        double value = atof(valueStr.c_str());
         if (value < 0) {
             std::cerr << "Error: not a positive number." << std::endl;
             continue;
@@ -147,7 +180,6 @@ void BitcoinExchange::processInputFile(const std::string &inputFile) const {
 double BitcoinExchange::getBitcoinValue(const std::string &date) const {
     std::map<std::string, double>::const_iterator it = bitcoinPrices.lower_bound(date);
     
-
     if (it != bitcoinPrices.end() && it->first == date)
         return it->second;
 
