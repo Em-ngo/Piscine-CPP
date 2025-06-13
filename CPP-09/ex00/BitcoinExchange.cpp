@@ -85,6 +85,20 @@ void BitcoinExchange::processInputFile(const std::string &inputFile) const {
         exit(1);
     }
 
+    std::string header;
+    if (!getline(file, header)) {
+        std::cerr << "Error: empty input file." << std::endl;
+        exit(1);
+    }
+
+    header.erase(0, header.find_first_not_of(" \t"));
+    header.erase(header.find_last_not_of(" \t") + 1);
+
+    if (header != "date | value") {
+        std::cerr << "Error: invalid header. Expected 'date | value' but got '" << header << "'." << std::endl;
+        exit(1);
+    }
+
     std::string line;
     getline(file, line); 
 
